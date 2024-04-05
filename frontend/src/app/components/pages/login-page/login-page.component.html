@@ -1,0 +1,34 @@
+
+  <body>
+    <div class="login-card">
+      <div class="card-image">
+        <!-- Replace 'your-image-url.jpg' with your image path -->
+        <img
+          src="/assets/login.webp"
+          alt="Login Visual"
+        />
+      </div>
+      <div class="login-form">
+        <form [formGroup]="loginForm" (ngSubmit)="submit()" action="post">
+          <h2>Login</h2>
+          <div class="input-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" formControlName="email" />
+          </div>
+          <div class="error-list" *ngIf="fc.email.errors && issubmited">
+            <div *ngIf="fc.email.errors.required">should not be empty</div>
+            <div *ngIf="fc.email.errors.email"> Email is not correct</div>
+          </div>
+          <div class="input-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" formControlName="password" />
+          </div>
+          <div class="error-list" *ngIf="fc.password.errors && issubmited">
+            <div *ngIf="fc.password.errors.required">should not be empty</div>
+          </div>
+          <button type="submit">Log In</button>
+          <p class="mt-2">don't have Account ? <a routerLink="/register">Create new Account</a></p>
+        </form>
+      </div>
+    </div>
+  </body>

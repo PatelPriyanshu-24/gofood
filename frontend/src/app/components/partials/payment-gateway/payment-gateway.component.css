@@ -1,0 +1,14 @@
+.bttn-warning {
+    background-color: #2a8bec;
+    color: white;
+    border-color: #1a1918;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    width: 50%;
+    
+}
+
+.bttn-warning:hover {
+    background-color: #4d7be0;
+    border-color: #1a1918;
+}

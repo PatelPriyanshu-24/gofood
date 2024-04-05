@@ -1,0 +1,27 @@
+div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  div a {
+    background-color: #f8f3f3; /* Updated background color */
+    padding: 0.5rem 1rem; /* Increased padding for better visual appearance */
+    margin: 0.3rem; /* Adjusted margin for better spacing */
+    border-radius: 1.5rem; /* Reduced border radius for a sleeker look */
+    font-weight: bold; /* Changed font weight for emphasis */
+    color: #f67a7a; /* Changed text color to white for better contrast */
+    text-decoration: none; /* Remove default underline */
+    transition: background-color 0.3s ease; /* Smooth transition on hover */
+  }
+  
+  div a:hover {
+    color: #fff;
+    background-color: #f45656; /* Darker background color on hover */
+  }
+  
+  div a.active {
+    color: #fff;
+    background-color: #f45656; /* Darker background color on hover */
+  }
+  
