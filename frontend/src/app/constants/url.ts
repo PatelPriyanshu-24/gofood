@@ -1,7 +1,7 @@
 import { environment } from "../../environments/environment";
 
 // const BASE_URL = "http://localhost:5000";
-const BASE_URL = "https://gofood-server-eight.vercel.app";
+const BASE_URL = "https://gofood-server.vercel.app";
 
 
 export const FOODS_URL = BASE_URL + '/api/foods';
