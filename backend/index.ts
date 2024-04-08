@@ -1,7 +1,6 @@
 
 import dotenv from 'dotenv';
 dotenv.config(); 
-console.log(process.env.MONGODB_URI)
 import express from "express";
 import cors from "cors";
 import FoodRouter from './src/router/food.router'
@@ -34,7 +33,7 @@ app.use("/api/orders",orderRouter)
 
 
 
-// app.listen(port, () => {
-//   console.log("your website is working on http://localhost:5000");
-// });
+app.listen(port, () => {
+  console.log("your website is working on http://localhost:5000");
+});
 
