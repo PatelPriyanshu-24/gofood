@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { CartService } from 'src/app/services/cart.service';
 import { Order } from 'src/app/shared/models/Order';
 
 @Component({
@@ -13,7 +14,7 @@ export class PaymentGatewayComponent {
   order!:Order 
 
      
-  constructor(private toaster: ToastrService,private router:Router) { }
+  constructor(private toaster: ToastrService,private router:Router,private cartservice:CartService) { }
   handler:any = null;
   ngOnInit(
   ) {
@@ -36,6 +37,7 @@ export class PaymentGatewayComponent {
         // alert('Token Created!!');
         this.toaster.success('Payment Successful')
         this.router.navigate([''])
+        this.cartservice.clearCart()
   
       }
     });

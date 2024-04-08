@@ -50,7 +50,7 @@ export class UserserviceService {
   logout() {
     this.userSubject.next(new user());
     localStorage.removeItem(USER_KEY);
-    window.location.reload();
+    // window.location.reload();
   }
 
   // Set item in localStorage
