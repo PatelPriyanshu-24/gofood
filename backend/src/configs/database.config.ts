@@ -2,7 +2,7 @@ import {connect , ConnectOptions} from 'mongoose';
 
 export const dbConnect = () =>
 {
-    connect("mongodb+srv://GoFood:ZnidscB9HLdYWile@cluster-gofood.qqdnuij.mongodb.net/Food",{
+    connect("mongodb+srv://gofood:8gB2Oxd6HPdR8wWF@gofood.fatvtpr.mongodb.net/gofood",{
       
     } as ConnectOptions).then(()=>{
         console.log('connect Successfully'),
