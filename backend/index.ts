@@ -11,14 +11,14 @@ dbConnect()
 
 
 
-const port = 5000;
+
 const app = express();
 app.use(express.json())
 app.use(
   cors({
     credentials: true,
-    // origin: ["http://localhost:4200"],
-    origin: ["https://gofood-sepia.vercel.app"],
+    origin:["http://localhost:4200"]
+   
     
   })
 );
@@ -31,7 +31,7 @@ app.use("/api/orders",orderRouter)
 
 
 
-
+const port = 5000;
 
 app.listen(port, () => {
   console.log("your website is working on http://localhost:5000");
