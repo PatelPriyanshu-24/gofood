@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 import { USER_LOGIN_URL } from '../shared/constants/url';
 import { ToastrService } from 'ngx-toastr';
 import { IUserRegister } from '../shared/Interface/IuserRegister';
-import { USER_REGISTER_URL } from '../constants/url';
+import { USER_REGISTER_URL } from '../shared/constants/url';
 
 // Define user key for local storage
 const USER_KEY = 'User';
