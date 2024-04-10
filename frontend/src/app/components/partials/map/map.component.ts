@@ -1,7 +1,9 @@
-import { Component, ElementRef, Input, OnChanges, ViewChild } from '@angular/core';
-import { icon, LatLng, LatLngExpression, LatLngTuple, LeafletMouseEvent, map, Map, marker, Marker, tileLayer } from 'leaflet';
+import { Component, ElementRef, EventEmitter, Input, OnChanges, Output, ViewChild } from '@angular/core';
+import { FormGroup } from '@angular/forms';
+import { icon, LatLng, LatLngExpression, LatLngLiteral, LatLngTuple, LeafletMouseEvent, map, Map, marker, Marker, tileLayer } from 'leaflet';
 import { LocationService } from 'src/app/services/location.service';
 import { Order } from 'src/app/shared/models/Order';
+
 
 @Component({
   selector: 'app-map',
@@ -13,6 +15,8 @@ export class MapComponent implements OnChanges {
   order!:Order;
   @Input()
   readonly = false;
+  @Input() checkoutForm!: FormGroup; 
+  @Output() locationFound: EventEmitter<{ location: LatLngLiteral, address: string }> = new EventEmitter<{ location: LatLngLiteral, address: string }>();
   private readonly MARKER_ZOOM_LEVEL = 16;
   private readonly MARKER_ICON = icon({
     iconUrl:
@@ -67,14 +71,34 @@ export class MapComponent implements OnChanges {
     })
   }
 
-  findMyLocation(){
+  findMyLocation() {
+    if (!this.checkoutForm) return;
     this.LocationService.getCurrentLocation().subscribe({
       next: (latlng) => {
-        this.map.setView(latlng, this.MARKER_ZOOM_LEVEL)
-        this.setMarker(latlng)
+        this.LocationService.getAddressFromCoordinates(latlng.lat, latlng.lng).subscribe({
+          next: (address) => {
+            // Emit the location and address data
+            const locationData = { location: latlng, address: address };
+            this.locationFound.emit(locationData);
+  
+            // Update the text input with the current address
+            this.checkoutForm.get('address')?.setValue(address);
+  
+            // Set the marker and update the map view
+            this.map.setView(latlng, this.MARKER_ZOOM_LEVEL);
+            this.setMarker(latlng);
+          },
+          error: (error) => {
+            console.error('Error getting address:', error);
+          }
+        });
+      },
+      error: (error) => {
+        console.error('Error getting current location:', error);
       }
-    })
+    });
   }
+ 
 
   setMarker(latlng:LatLngExpression){
     this.addressLatLng = latlng as LatLng;

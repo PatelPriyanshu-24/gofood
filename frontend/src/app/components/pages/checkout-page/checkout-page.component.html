@@ -38,7 +38,7 @@
             <strong>Address:</strong> {{ checkoutForm.value.address }}
           </p>
 
-          <app-map [order]="order"></app-map>
+          <app-map [order]="order" [checkoutForm]="checkoutForm" (locationFound)="updateAddressAndLocation($event)"></app-map>
         </div>
       </div>
     </div>

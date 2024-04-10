@@ -1,13 +1,15 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { LatLngLiteral } from 'leaflet';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LocationService {
 
-  constructor() { }
+
+  constructor(private http: HttpClient) { }
 
   getCurrentLocation(): Observable<LatLngLiteral>{
     return new Observable((observer) => {
@@ -25,5 +27,11 @@ export class LocationService {
         }
       )
     })
+  }
+  getAddressFromCoordinates(lat: number, lng: number): Observable<string> {
+    const url = `https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lng}&format=json`;
+    return this.http.get<any>(url).pipe(
+      map((response: any) => response.display_name as string)
+    );
   }
 }

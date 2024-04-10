@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { LoadingService } from 'src/app/services/loading.service';
 
 @Component({
@@ -6,17 +6,16 @@ import { LoadingService } from 'src/app/services/loading.service';
   templateUrl: './loading.component.html',
   styleUrls: ['./loading.component.css']
 })
-export class LoadingComponent implements OnInit {
-
+export class LoadingComponent {
   isLoading!: boolean;
 
   constructor(loadingservice: LoadingService) {
     loadingservice.isLoading.subscribe((isLoading) => {
       this.isLoading = isLoading;
     });
-  }
 
-  ngOnInit(): void {
+    loadingservice.showLoading()
   }
-
 }
+
+

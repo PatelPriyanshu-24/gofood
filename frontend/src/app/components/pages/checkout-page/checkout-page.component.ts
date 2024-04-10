@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { LatLngLiteral } from 'leaflet';
 import { ToastrService } from 'ngx-toastr';
 import { CartService } from 'src/app/services/cart.service';
 import { OrderService } from 'src/app/services/order.service';
@@ -64,5 +65,8 @@ export class CheckoutPageComponent implements OnInit {
         this.toastrService.error(errorResponse.error,'Cart');
       }
     })
+  }
+  updateAddressAndLocation(event: { location: LatLngLiteral; address: string }) {
+    this.checkoutForm.get('address')?.setValue(event.address);
   }
 }

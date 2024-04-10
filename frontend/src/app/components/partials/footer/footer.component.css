@@ -1,0 +1,76 @@
+/* Add your custom CSS to enhance the footer */
+footer {
+    background-color: #343a40; /* Dark background */
+    color: #fff; /* White text color */
+    padding: 0px 0; /* Add padding top and bottom */
+    position: relative; /* Position relative for absolute positioning of elements */
+}
+
+footer a {
+    color: #fff; /* White text color for links */
+    text-decoration: none; /* Remove underline */
+    transition: color 0.3s ease; /* Smooth transition for color change */
+}
+
+footer a:hover {
+    color: #007bff; /* Blue color on hover for links */
+}
+
+footer .border-bottom {
+    border-color: #dee2e6; /* Lighter border color */
+}
+
+/* Animation for social media icons */
+footer .fa-facebook-f:hover,
+footer .fa-twitter:hover,
+footer .fa-google:hover,
+footer .fa-instagram:hover,
+footer .fa-linkedin:hover,
+footer .fa-github:hover {
+    transform: scale(1.2); /* Scale up on hover */
+    transition: transform 0.3s ease; /* Smooth transition */
+}
+
+/* Styling for footer content */
+footer p {
+    margin-bottom: 10px; /* Add spacing between paragraphs */
+}
+
+footer .container {
+    max-width: 1200px; /* Limit container width */
+}
+
+footer .text-uppercase {
+    color: #007bff; /* Blue color for uppercase text */
+}
+
+footer .navbar-brand img {
+    max-width: 200px; /* Limit logo width */
+    transition: transform 0.3s ease; /* Smooth transition for scale */
+}
+
+footer .fw-bold {
+    color: #000000; /* Black color for bold text */
+}
+
+/* Additional styling for footer links */
+footer .footer-links {
+    margin-top: 20px; /* Add spacing between links */
+    text-align: center; /* Center align links */
+}
+
+footer .footer-links a {
+    display: inline-block; /* Display links inline */
+    margin: 0 10px; /* Add spacing between links */
+    font-size: 18px; /* Increase font size */
+    transition: transform 0.3s ease; /* Smooth transition for scale */
+}
+
+footer .footer-links a:hover {
+    transform: translateY(-3px); /* Move links up on hover */
+}
+
+/* Advanced effect for footer logo */
+footer .navbar-brand img:hover {
+    transform: rotate(360deg) scale(1.2); /* Rotate and scale logo on hover */
+}

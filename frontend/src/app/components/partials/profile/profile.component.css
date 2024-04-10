@@ -1,0 +1,85 @@
+.container {
+    background-color: #3a4d39;
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .profile {
+    font-size: 1rem;
+    padding: 20px;
+    background-color: #ece3ce;
+    border-radius: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .profile-details {
+    font-size: 1rem;
+  }
+  
+  .profile-picture {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+  }
+  
+  .profile-picture img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+  }
+  
+  ul {
+    padding: 10px;
+    background-color: #3a4d39;
+    border-radius: 10px;
+    margin: 0;
+  }
+  
+  li {
+    padding: 5px 0;
+    border-bottom: 1px solid #797979;
+  }
+  
+  li:last-child {
+    border-bottom: none;
+  }
+  
+  li a {
+    text-decoration: none;
+    cursor: pointer;
+    color: #ece3ce;
+    text-transform: capitalize;
+  }
+  
+  .image {
+    width: 100%;
+    background-image: url("https://burst.shopifycdn.com/photos/hamburger-and-fries.jpg?width=1000&format=pjpg&exif=0&iptc=0");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    height: 200px; 
+  }
+  
+ 
+  @media (min-width: 768px) {
+    .container {
+      flex-direction: row;
+    }
+  
+    .profile {
+      width: 50%;
+      margin-right: 20px;
+      margin-bottom: 0;
+    }
+  
+    .image {
+      width: 50%;
+      height: auto;
+    }
+  }
+  
