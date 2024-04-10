@@ -1,7 +1,7 @@
 
-
-const BASE_URL = "https://gofood-server.vercel.app";
 // const BASE_URL = "http://localhost:5000";
+const BASE_URL = "https://gofood-server.vercel.app";
+
 
 export const FOODS_URL = BASE_URL + '/api/food';
 export const FOODS_TAGS_URL = FOODS_URL + '/tag';
